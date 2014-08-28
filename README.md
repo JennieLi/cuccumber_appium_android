@@ -1,4 +1,4 @@
-Cucumber Appium Java (Android Example)
+#Cucumber Appium Java (Android Example)
 
 -------------------------------------
 
@@ -10,7 +10,7 @@ This project comes with:
 * Example feature file
 * Example step definitions.
 
-[Prerequisites]: 
+## [Prerequisites]: 
 
 (This has been tested on the following system.)
 * Windows 7
@@ -21,11 +21,12 @@ This project comes with:
 * Appium 1.2.1 (http://appium.io/)
 * Android Device/Emulator (Android Version 4.2.2)
 
-[Steps]:
+## [Steps]:
 
 * Connect Android device
 
 	adb devices
+	
 	appium &
 
 * Specifiy the App/APK  to be tested.
@@ -33,7 +34,9 @@ This project comes with:
 	Put the apk file under apks/ folder, and confirm the values of APP_DIR, APK_NAME correct in conf/config.properties.
 
 * Start cucumber test. (If need update the cucumber feature file)
+	
 	cd .../path/of/root/folder (like Cucumber_Appium_Android, which build.xml locates in.)
+	
 	ant runcukes
 
 * Check junit test reports and cucumber html report in target/ folder.
