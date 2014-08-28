@@ -11,13 +11,13 @@ This project comes with:
 [Prerequisites]: 
 
 (This has been tested on the following system.)
-Windows 7
-Java 1.7
-Android SDK 22.2.1
-Ant Version 1.8.1
-node.js 1.3.11
-Appium 1.2.1 (http://appium.io/)
-Android Device/Emulator (Android Version 4.2.2)
+* Windows 7
+* Java 1.7
+* Android SDK 22.2.1
+* Ant Version 1.8.1
+* node.js 1.3.11
+* Appium 1.2.1 (http://appium.io/)
+* Android Device/Emulator (Android Version 4.2.2)
 
 [Steps]:
 
