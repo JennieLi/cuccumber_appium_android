@@ -1,0 +1,98 @@
+<project name="Cucumber_Appium_Android" basedir="." default="runcukes">
+
+    <property name="jar.libs.dir" value="lib" />
+    <property name="jar.libs.absolute.dir" location="${jar.libs.dir}" />
+	<loadproperties srcFile="conf/config.properties" />
+	
+	<path id="classpath">
+        <fileset dir="${jar.libs.absolute.dir}">
+        	<include name="**/*.jar"/>
+        </fileset>
+		<fileset dir="conf">
+		    <include name="*.properties"/>
+		</fileset>
+		<pathelement location="target/classes"/>
+		<pathelement location="target/test-classes"/>
+    </path>
+    
+	<target name="clean" >
+	        <delete dir="target"/>
+	</target>
+	
+	<target name="compile">
+	        <mkdir dir="target/classes"/>
+	        <javac srcdir="src/main/java" destdir="target/classes" classpathref="classpath" includeantruntime="false"/>
+	</target>
+
+	<target name="compile-test" depends="compile">
+        <mkdir dir="target/test-classes"/>
+        <javac srcdir="src/test/java" destdir="target/test-classes" classpathref="classpath" includeantruntime="false"/>
+    </target>
+
+
+    <target name="runcukes" depends="clean, compile-test">
+        <mkdir dir="target/cucumber-junit-report"/>
+        <java classname="cucumber.api.cli.Main" fork="true" failonerror="false" resultproperty="cucumber.exitstatus">
+            <classpath refid="classpath"/>
+        	<arg value="--format"/>
+        	<arg value="junit:target/cucumber-junit-report.xml"/>
+        	<arg value="--format"/>
+        	<arg value="progress"/>
+        	<arg value="--format"/>
+        	<arg value="html:target/cucumber-html-report"/>
+            <arg value="--glue"/>
+            <arg value="com.myriad.automation"/>
+            <arg value="src/test/resources"/>
+        </java>
+
+        <junitreport todir="target/cucumber-junit-report">
+            <fileset dir="target">
+                <include name="cucumber-junit-report.xml"/>
+            </fileset>
+            <report format="frames" todir="target/cucumber-junit-report"/>
+        </junitreport>
+    	
+    	<fail message="Cucumber failed">
+    	            <condition>
+    	                <not>
+    	                    <equals arg1="${cucumber.exitstatus}" arg2="0"/>
+    	                </not>
+    	            </condition>
+    	 </fail>
+ 
+    </target>
+
+    <target name="runcukes-tags" depends="clean, compile-test">
+        <mkdir dir="screenshot"/>
+        <mkdir dir="target/cucumber-junit-report"/>
+        <java classname="cucumber.api.cli.Main" fork="true" failonerror="false" resultproperty="cucumber.exitstatus">
+            <classpath refid="classpath"/>
+            <arg value="--format"/>
+            <arg value="junit:target/cucumber-junit-report.xml"/>
+            <arg value="--tags"/>
+            <arg value="${tags}"/>
+            <arg value="--format"/>
+            <arg value="progress"/>
+            <arg value="--format"/>
+            <arg value="html:target/cucumber-html-report"/>
+            <arg value="--glue"/>
+            <arg value="com.myriad.dlna.dmc"/>
+            <arg value="src/test/resources"/>
+        </java>
+
+        <junitreport todir="target/cucumber-junit-report">
+            <fileset dir="target">
+                <include name="cucumber-junit-report.xml"/>
+            </fileset>
+            <report format="frames" todir="target/cucumber-junit-report"/>
+        </junitreport>
+
+        <fail message="Cucumber failed">
+            <condition>
+                <not>
+                    <equals arg1="${cucumber.exitstatus}" arg2="0"/>
+                </not>
+            </condition>
+        </fail>
+    </target>
+</project>
