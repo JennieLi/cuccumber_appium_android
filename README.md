@@ -1,5 +1,7 @@
 Cucumber Appium Java (Android Example)
 
+-------------------------------------
+
 This project Demo BDD tests on Android device as example, using Cucumber-jvm, Appium. 
 
 This project comes with:
@@ -23,15 +25,15 @@ This project comes with:
 
 * Connect Android device
 
-adb devices
-appium &
+	adb devices
+	appium &
 
 * Specifiy the App/APK  to be tested.
 
-Put the apk file under apks/ folder, and confirm the values of APP_DIR, APK_NAME correct in conf/config.properties.
+	Put the apk file under apks/ folder, and confirm the values of APP_DIR, APK_NAME correct in conf/config.properties.
 
 * Start cucumber test. (If need update the cucumber feature file)
-cd .../path/of/root/folder (like Cucumber_Appium_Android, which build.xml locates in.)
-ant runcukes
+	cd .../path/of/root/folder (like Cucumber_Appium_Android, which build.xml locates in.)
+	ant runcukes
 
 * Check junit test reports and cucumber html report in target/ folder.
