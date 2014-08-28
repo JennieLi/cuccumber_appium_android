@@ -1,5 +1,5 @@
 #Cucumber Appium Java 
-###(Android Example)
+###Android Example
 
 -------------------------------------
 
@@ -11,7 +11,7 @@ This project comes with:
 * Example feature file
 * Example step definitions.
 
-## [Prerequisites]: 
+## Prerequisites
 
 (This has been tested on the following system.)
 * Windows 7
@@ -22,7 +22,7 @@ This project comes with:
 * Appium 1.2.1 (http://appium.io/)
 * Android Device/Emulator (Android Version 4.2.2)
 
-## [Steps]:
+## Steps
 
 * Connect Android device
 
