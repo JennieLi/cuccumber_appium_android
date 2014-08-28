@@ -41,7 +41,7 @@
         	<arg value="--format"/>
         	<arg value="html:target/cucumber-html-report"/>
             <arg value="--glue"/>
-            <arg value="com.myriad.automation"/>
+            <arg value="com.example.automation"/>
             <arg value="src/test/resources"/>
         </java>
 

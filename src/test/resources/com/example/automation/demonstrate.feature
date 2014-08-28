@@ -4,7 +4,7 @@ Feature: Demonstrate
   So I can streamline my development process
 
   Scenario: Welcome Message
-    Given I am on the screen with keyword "Send"
+    Given I am on the screen with keyword "Android Test App"
 #    And I enter text "Hello World!"
 #    When I click the "Send" button
 #    Then I am taken to the "Display Message" screen

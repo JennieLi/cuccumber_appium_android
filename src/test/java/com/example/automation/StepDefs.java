@@ -47,11 +47,8 @@ public class StepDefs {
 	// Given I am on the "Main" screen
 	@Given("^I am on the screen with keyword \"([^\"]*)\"$")
 	public void I_am_on_the_screen(String screenKeyWords) throws Exception {
-		assertTrue(mAppiumDriver.isAppInstalled("com.example.androidtestapp"));
-		System.out.println("On Screen: '" + screenKeyWords + "'");
-		List<WebElement> elements = mAppiumDriver.findElementsByAndroidUIAutomator("new UiSelector().className(\"android.widget.Button\").text(\"" + screenKeyWords + "\")");
-		System.out.println("Found elements: " + elements.size()); 
-		assertTrue(elements.size() > 0);
+		WebElement element = mAppiumDriver.findElementByAndroidUIAutomator("new UiSelector().text(\"" + screenKeyWords + "\")");
+		assertTrue(element.isDisplayed());
 	}
 
 }
